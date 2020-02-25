@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>反转字符串</title>
+    <script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+<div id="con">
+      原： {{mes}}<br>
+    反转：{{reverseMessage}}
+
+</div>
+<script type="text/javascript">
+    var vm=new Vue({
+        el:"#con",
+        data:{
+            mes:"jack&rose"
+        },
+        computed:{
+            reverseMessage:function () {
+                console.log("计算属性调用了");
+              return this.mes.split("").reverse().join("");
+            }
+        }
+
+    })
+
+
+</script>
+
+</body>
+</html>

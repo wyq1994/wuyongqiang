@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue条件和循环</title>
+    <script src="js/vue.js"></script>
+<body>
+<div id="box">
+    {{mes}}
+    <div v-if="show">列表</div>
+    <ul>
+        <li v-for="i in stu">{{i}}</li>
+    </ul>
+
+</div>
+<script type="text/javascript">
+    var box=new Vue({
+        el:"#box",
+        data:{
+            mes:"hello",
+            show:true,
+            stu:['jack','tom','rose']
+        }
+    })
+
+</script>
+
+</body>
+</html>

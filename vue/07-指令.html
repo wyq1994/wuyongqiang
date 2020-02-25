@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>指令</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="con">
+    <div v-if="ok" >显示</div>
+    <a v-bind:href="myurl">百度一下</a><br>
+    <a :href="myurl">百度一下</a><br>
+    3.v-on 的属性 :*** 例如： v-on:click  v-on:mouseover
+    v-on:mouseout v-on:blur v-on:focus v-on:scroll v-on:****<br>
+    <button v-on:click="addFun">+{{num}}</button>
+    <button @click="addFun">-{{num}}</button>
+
+</div>
+<script type="text/javascript">
+    var vm=new Vue({
+        el:"#con",
+        data:{
+            num:1,
+            mes:"hello",
+            ok:true,
+            myurl:"http://www.baidu.com",
+        },
+        methods:{
+            addFun:function () {
+                console.log('函数调用');
+                this.num++;
+            }
+        }
+
+    })
+
+</script>
+
+</body>
+</html>

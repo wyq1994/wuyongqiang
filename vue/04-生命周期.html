@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>生命周期</title>
+    <script src="js/vue.js"></script>
+    <div id="con">
+        {{message}}
+    </div>
+</head>
+<body>
+<script type="text/javascript">
+    var vm=new Vue({
+        data:{
+            message:"hello"
+        },
+        beforeCreate:function () {
+            console.log("vue实例创建前，钩子函数运行了");
+        },
+        created:function () {
+            console.log("vue实例创建后，钩子函数运行了");
+        },
+        //在挂载前，el和 html的点点没有关联
+        //vm.$mount("#app")
+        beforeMount:function () {
+            console.log("vue实例挂载前，钩子函数运行了");
+        },
+        mounted:function () {
+            console.log("vue实例挂载后，钩子函数运行了");
+        },
+        //当数据发生改变时，会触发  beforeUpdate  updated函数
+        beforeUpdate:function () {
+            console.log("vue实例更新前，钩子函数运行了");
+        },
+        updated:function () {
+            console.log("vue实例更新后，钩子函数运行了");
+        },
+        beforeDestroy:function () {
+            console.log("vue实例销毁前，钩子函数运行了");
+        },
+        destroyed:function () {
+            console.log("vue实例销毁后，钩子函数运行了");
+        }
+    }).$mount("#con");
+</script>
+
+</body>
+</html>

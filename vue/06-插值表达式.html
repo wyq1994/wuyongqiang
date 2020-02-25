@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>插值表达式</title>
+    <script type="text/javascript" src="js/vue.js"></script>
+</head>
+<body>
+<div id="con">
+    <div>{{ok?"yes":"no"}}</div>
+    <div>{{mes}}</div>
+    <div>{{mes.split("").reverse().join("")}}</div>
+   <div v-bind:id="'myaaa'+id">菜单6666</div>
+</div>
+<script type="text/javascript">
+    var vm=new Vue({
+        el:"#con",
+        data:{
+            number:10,
+            ok:true,
+            mes:"聊哦链接看你了",
+            id:15
+        }
+    })
+</script>
+
+</body>
+</html>

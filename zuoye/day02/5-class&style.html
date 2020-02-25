@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            margin-bottom: 10px;
+        }
+        .myClass{
+            width: 100px;
+            height: 100px;
+            background: yellow;
+        }
+        .active{
+            color: tomato;
+        }
+        .danger{
+            border: 3px solid green;
+        }
+    </style>
+</head>
+<body>
+    <script src="js/vue.js"></script>
+    <div id="app">
+        <h3>class 使用</h3>
+        <div :class="[myClass,activeClass]">明月几时有</div>
+        <div :class="[isActive ? 'active' :'danger', myClass]">把酒问青天</div>
+        <br>
+        <h3>style 使用</h3>
+        <div :style="{background:redColor}">不知天上宫阙</div>
+        <div :style="myStyle">今夕是何年</div>
+    </div>
+    <script>
+        var vm = new Vue({
+            el:"#app",
+            data:{
+                myClass:"myClass",
+                isActive:true,
+                activeClass:"active",
+                redColor:'red',
+                myStyle:{color:'pink',background:'blue'}
+            }
+        })
+    </script>
+</body>
+</html>

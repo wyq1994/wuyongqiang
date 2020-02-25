@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>反转字符串</title>
+    <script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+<div id="con">
+    {{mes}}<br>
+
+    {{reverseMessage}}
+
+</div>
+<script type="text/javascript">
+    var vm=new Vue({
+        el:"#con",
+        data:{
+            mes:"jack tom kobe"
+        },
+        computed:{
+            reverseMessage:function () {
+                console.log(this);
+                return this.mes.split("").reverse().join("");
+            }
+        }
+    })
+</script>
+</body>
+</html>

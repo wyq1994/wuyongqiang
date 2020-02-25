@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>实例对象</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="con">
+{{mes}}
+</div>
+<script type="text/javascript">
+    var mes='hello world';
+    var vm=new Vue({
+        el:"con",
+        data:{
+            mes:message
+        }
+    })
+</script>
+
+
+</body>
+</html>
