@@ -6,13 +6,20 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
-<div id="app"></div>
-{{message}}
+<div id="app">
+    {{message}}
+    <div>姓名：{{stu}}</div>
+    <h3>年龄：{{age}}</h3>
+</div>
 <script >
     var app = new Vue({
         el: '#app',
         data: {
-            message: 'Hello Vue!'
+            message: 'Hello Vue!',
+            text:"hello world",
+            stu:"小丽",
+            age:23
+
         }
     })
 </script>
