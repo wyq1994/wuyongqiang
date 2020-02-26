@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/vue.js" type="text/javascript"></script>
+    <style>
+        .tab{
+            width: 600px;border-collapse: collapse;
+        }
+        .tab td,.tab th  {
+            border: 1px solid lightskyblue;
+        }
+
+    </style>
+</head>
+<body>
+<div id="app">
+    <table class="tab">
+        <tr>
+            <th>学号</th>
+            <th>姓名</th>
+            <th>性别</th>
+            <th @click="ageSort">年龄
+                <span v-show="sortType && sortInit">↓</span>
+                <span v-show="!sortType && sortInit">↑</span>
+            </th>
+            <th>籍贯</th>
+            <th>联系方式</th>
+        </tr>
+   <tr v-for="(item,index) in list" :key="item.id" >
+       <td >{{item.id}}</td>
+       <td>{{item.name}}</td>
+       <td >{{item.general}}</td >
+       <td>{{item.age}}</td>
+       <td>{{item.home}}</td>
+       <td >{{item.tell}}</td>
+   </tr>
+    </table>
+</div>
+<script type="text/javascript">
+    /*
+			作业：学生信息表：使用 table
+			学号 ，姓名，性别，籍贯，联系方式
+			5条数据
+			*/
+  var vm=new Vue({
+      el:"#app",
+      data:{
+          list:[
+              {id:"1", name:"jack", general: "男",age:20, home:"北京", tell:1356632244},
+              {id:"2", name:"rose", general: "女",age:30, home:"上海", tell:1356632244},
+              {id:"3", name:"tom", general: "男",age:10, home:"广州", tell:1356632244},
+              {id:"4", name:"jane", general: "女",age:35, home:"深圳", tell:1356632244},
+              {id:"5", name:"pull", general: "男",age:27, home:"武汉", tell:1356632244},
+              {id:"6", name:"maria", general: "女",age:35, home:"杭州", tell:1356632244}
+          ],
+          sortType:true,
+          sortInit:false
+      },
+      methods:{
+          ageSort:function () {
+              this.sortInit=true;
+              if (this.sortType){
+                  this.list.sort((a,b)=>{
+                      return a.age -b.age;
+                  })
+              }else {
+                  this.list.sort((a,b)=>{
+                      return b.age -a.age;
+                  })
+              }
+              this.sortType=!this.sortType;
+          }
+      }
+
+
+  })
+</script>
+
+
+</body>
+</html>
