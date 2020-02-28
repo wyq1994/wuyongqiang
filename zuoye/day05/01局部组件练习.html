@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <child1></child1>
+    <child1></child1>
+    <child1></child1>
+
+</div>
+<script type="text/javascript">
+    var child1={
+        template:`<div>局部组件</div>`
+    }
+    var vm=new Vue({
+        el:"#app",
+        data:{
+
+        },
+       components:{//在vue实例里注册或者挂载
+            child1
+       }
+
+
+    })
+</script>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <sport value="足球"></sport>
+    <sport value="篮球"></sport>
+    <sport value="棒球"></sport>
+    <sport value="羽毛球"></sport>
+    <sport value="散打"></sport>
+    <sport value="空手道"></sport>
+
+
+</div>
+<script type="">
+    var sport={
+        props:['value'],
+        template:`<div>我喜欢的运动：{{value}}</div>`
+    };
+    var vm=new Vue({
+        el:"#app",
+        data:{
+
+        },
+        components:{
+            sport
+        }
+
+    })
+
+
+
+</script>
+
+</body>
+</html>

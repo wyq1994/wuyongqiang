@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/vue.js"></script>
+    <style>
+        .mytable{
+            width: 600px;
+            border-collapse: collapse;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .mytable tr td,.mytable tr th{border:1px solid green;}
+        .tx{
+
+        }
+
+    </style>
+</head>
+<body>
+<div id="app">
+    <input class="tx" type="text" v-model.lazy="stu" placeholder="请输入搜索的用户名"/>
+    <table class="mytable">
+        <tr>
+            <th>学号</th>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>籍贯</th>
+            <th>联系方式</th>
+            <th @click="ageSort">年龄
+                <span v-show="sortType && sortInit">↓</span>
+                <span v-show="!sortType && sortInit">↑</span>
+            </th>
+        </tr>
+        <tr v-for="(item,index) in searchStu" :key="item.id">
+            <td>{{item.id}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.sex}}</td>
+            <td>{{item.jiguan}}</td>
+            <td>{{item.phone}}</td>
+            <td>{{item.age}}</td>
+        </tr>
+
+    </table>
+
+
+</div>
+<script>
+    var vm=new Vue({
+        el:"#app",
+        data:{
+            stu:'',
+            stuList:[
+                {"id":1,"name":"盖聂","sex":"男","jiguan":"山西","phone":"13412345678","age":20,"pinyin":"dachun"},
+                {"id":2,"name":"卫庄","sex":"男","jiguan":"河北","phone":"13412345678","age":16,"pinyin":"daxiong"},
+                {"id":3,"name":"金庸","sex":"男","jiguan":"香港","phone":"13412345678","age":28,"pinyin":"xiaotiantian"},
+                {"id":4,"name":"李师师","sex":"女","jiguan":"河南","phone":"13412345678","age":18,"pinyin":"xiaohua"},
+                {"id":5,"name":"秋瑾","sex":"男","jiguan":"浙江","phone":"13412345678","age":25,"pinyin":"shanshan"},
+                {"id":6,"name":"秦琼","sex":"男","jiguan":"山东","phone":"13412345678","age":35,"pinyin":"shanshan"},
+                {"id":7,"name":"李秋水","sex":"男","jiguan":"宁夏","phone":"13412345678","age":25,"pinyin":"shanshan"}
+            ],
+            sortType:true,
+            sortInit:false
+
+        },
+        computed:{
+            searchStu:function () {
+                return this.stuList.filter(value =>{
+                    return value.name.match(this.stu)||value.pinyin.match(this.stu);
+                } )
+            }
+        },
+        methods:{
+            ageSort:function () {
+                this.sortInit=true;
+                if (this.sortType){
+                    this.stuList.sort((a,b)=>{
+                        return a.age-b.age;
+                    })
+                } else {
+                    this.stuList.sort((a,b)=>{
+                        return b.age-a.age;
+                    })
+                }
+                //排序的状态需要取反
+                this.sortType = !this.sortType;
+            }
+        }
+    })
+</script>
+
+</body>
+</html>
