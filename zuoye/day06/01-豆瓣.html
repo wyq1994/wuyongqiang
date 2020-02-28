@@ -14,6 +14,7 @@
     <meta name="viewport" content="width=device-width" />
     <script src="../js/vue.js"></script>
     <script src="../js/axios.min.js" charset="utf-8"></script>
+    <!--渲染不了图片，403,使用此行代码-->
     <meta name="referrer" content="no-referrer" />
 </head>
 <body>
@@ -71,14 +72,14 @@
             //综艺
             axios.get('../js/zongyi.json').then((data)=>{//成功获取数据的回调函数
                 console.log(data);
-                this.guochanList=data.data.subject_collection_items;
+                this.zongyiList=data.data.subject_collection_items;
             }).catch((error)=>{//失败的回调函数
                 console.log(error);
             })
             //yingmei
             axios.get('../js/yingmei.json').then((data)=>{//成功获取数据的回调函数
                 console.log(data);
-                this.guochanList=data.data.subject_collection_items;
+                this.yingmeiList=data.data.subject_collection_items;
             }).catch((error)=>{//失败的回调函数
                 console.log(error);
             })
